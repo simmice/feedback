@@ -1,0 +1,80 @@
+<!-- Navbar Starts -->
+<nav class="navbar navbar-dark ">
+    <div class="container_fluid">
+      <mat-toolbar color="accent">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+        <span class="company">My Feedback App</span>
+        <button (click)="signOut()">Log Out</button>
+      </mat-toolbar>
+    </div>
+  <!-- Navbar Ends -->
+  
+  <!-- Form Starts -->
+  <header class="header">
+    <h1>Feedback</h1>
+  </header>
+  <div class="col col-md-6">
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitData(feedbackForm.value)">
+      <div class="row">
+        <label class="static"><b>Is this your first visit to the website?</b></label>
+        <div class="input-field col s12" *ngFor="let option of options1">
+          <input formControlName="options1" type="radio" name="options1" value="{{ option }}">
+          <i>{{ option }}</i>
+        </div>
+      </div>
+  
+      <div class="row">
+        <label class="static"><b>What do you like most in Service 3?</b></label>
+        <div *ngFor="let option of options2">
+          <input formControlName="options2" type="radio" name="options2" value="{{ option }}">
+          <i>{{ option }}</i>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div>
+          <label class="static"><b>If the service is not in the list, please mention it. (optional)</b></label>
+          <input formControlName="text1" type="text" name="text1">
+        </div>
+      </div>
+  
+      <div class="row">
+        <label class="static"><b>How well do you like the service?</b></label>
+        <div *ngFor="let option of options3">
+          <input formControlName="options3" type="radio" name="options3" value="{{ option }}">
+          <i>{{ option }}</i>
+        </div>
+      </div>
+  
+      <div class="row">
+        <label class="static"><b>How is the overall quality of the service?</b></label>
+        <div *ngFor="let option of options4">
+          <input formControlName="options4" type="radio" name="options4" value="{{ option }}" (click)="options4.showMe=!options4.showMe">
+          <i>{{ option }}</i>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="options4.showMe">
+        <label for="" class="static"><b>Please tell us what you find unsatisfied.</b></label>
+        <div>
+          <input id="textbox" formControlName="text0" type="text" name="text0" placeholder="type something...">
+        </div>
+      </div>
+  
+      <div class="row">
+        <div>
+          <label class="static"><b>Leave a comment. (optional) </b></label>
+          <textarea formControlName="text2" type="text" name="text2" placeholder="Leave a comment..">
+            </textarea>
+        </div>      
+      </div>    
+      
+      <div class="row">
+        <button type="submit" mat-raised-button color="primary" [disabled]="feedbackForm.invalid"> Submit </button>
+        <button type="reset" mat-raised-button color="accent">Reset</button>
+        <button type="button" mat-raised-button color="warn" (click)="reviewForm()">Review</button>
+      </div>
+      </form>
+    </div>
+    
+  

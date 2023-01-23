@@ -1,0 +1,173 @@
+
+<!-- Form Starts -->
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-3 col-md-2"></div>
+      <div class="col-lg-6 col-md-8 feedback-box">
+          
+          <div class="col-lg-12 feedback-title">
+             FEEDBACK 
+          </div>
+
+          <div class="col-lg-12 feedback-form">
+              <div class="col-lg-12 feedback-form">
+                  <form [formGroup]="feedbackForm" (ngSubmit)="submitData(feedbackForm.value)">
+
+                      <div class="form-group-radio">
+                          <label class="form-control-label">Is this your first visit to the website?</label>
+                          <div class="input-field col s12" *ngFor="let option of options1" >
+                            <input formControlName="options1" type="radio" name="options1" value="{{ option }}" *ngIf="!isReview">
+                            <i *ngIf="!isReview">{{ option }}</i>
+                          </div>
+                          <div *ngIf="isReview">{{ formDetails?.options1 }}</div> 
+                      </div>
+
+                      <div class="form-group-radio">
+                        <label class="form-control-label">What do you like most in Service 1?</label>
+                        <div class="input-field col s12" *ngFor="let option of options2" >
+                          <input formControlName="options2" type="radio" name="options2" value="{{ option }}" *ngIf="!isReview">
+                          <i *ngIf="!isReview">{{ option }}</i>
+                        </div>
+                        <div *ngIf="isReview">{{ formDetails?.options2 }}</div> 
+                    </div>
+
+                      <div class="form-group-box">
+                          <label class="form-control-label">If the service is not in the list, please mention it. (optional)</label>
+                          <textarea formControlName="text1" type="text" name="text1" *ngIf="!isReview" placeholder="type something..."></textarea>
+                          <div *ngIf="isReview">{{ formDetails?.text1 }}</div> 
+                      </div>
+
+                      <div class="form-group-radio">
+                        <label class="form-control-label">How well do you like the service?</label>
+                        <div class="input-field col s12" *ngFor="let option of options3" >
+                          <input formControlName="options3" type="radio" name="options3" value="{{ option }}" *ngIf="!isReview">
+                          <i *ngIf="!isReview">{{ option }}</i>
+                        </div>
+                        <div *ngIf="isReview">{{ formDetails?.options3 }}</div> 
+                    </div>
+
+                    <div class="form-group-radio">
+                      <label class="form-control-label">How is the overall quality of the service?</label>
+                      <div class="input-field col s12" *ngFor="let option of options4" >
+                        <input formControlName="options4" type="radio" name="options4" id="{{ option }}" value="{{ option }}" (change)="seeTextbox($event)" *ngIf="!isReview">
+                        <i *ngIf="!isReview">{{ option }}</i>
+                      </div>
+                      <div *ngIf="isReview">{{ formDetails?.options4 }}</div> 
+                  </div>
+
+                  <div class="form-group-box" *ngIf="showMe">
+                    <label class="form-control-label">Please tell us what you find unsatisfied.</label>
+                    <textarea formControlName="text0" type="text" name="text0" *ngIf="!isReview" placeholder="type something..."></textarea>
+                    <div *ngIf="isReview">{{ formDetails?.text0 }}</div> 
+                </div>
+
+                <div class="form-group-box">
+                  <label class="form-control-label">Leave a comment. (optional)</label>
+                  <textarea formControlName="text1" type="text" name="text2" *ngIf="!isReview" placeholder="Leave a comment..."></textarea>
+                  <div *ngIf="isReview">{{ formDetails?.text2 }}</div> 
+              </div>
+
+                      <div class="col-lg-12 formbttm">
+                          <div class="col-lg-6 form-btm form-text">
+                              <!-- Error Message -->
+                          </div>
+                          <div class="col-lg-6 form-btm form-button">
+                              <button type="submit" class="btn btn-outline-primary" *ngIf="isReview">SUBMIT</button>
+                              <button type="reset" class="btn btn-outline-primary" *ngIf="!isReview">RESET</button>
+                              <button type="button" class="btn btn-outline-primary" *ngIf="!isReview" [disabled]="feedbackForm.invalid" (click)="reviewForm()">REVIEW</button>
+                              <button type="button" class="btn btn-outline-primary" (click)="editForm()" *ngIf="isReview">EDIT</button>
+                              <button type="button" class="btn btn-outline-primary" (click)="signOut()">LOGOUT</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-2"></div>
+      </div>
+  </div>
+
+
+
+
+<!-- <div class="col col-md-6" >
+  <form [formGroup]="feedbackForm" (ngSubmit)="submitData(feedbackForm.value)">
+    <div class="form-title">
+      <h1 class="header">Feedback</h1>
+      <button class="logout" type="button" (click)="signOut()">Log Out</button>
+    </div>
+    
+    <div class="main-user-info">
+      <div class="user-input-radio">
+      <label class="static"><b>Is this your first visit to the website?</b></label>
+      <div class="input-field col s12" *ngFor="let option of options1" >
+        <input formControlName="options1" type="radio" name="options1" value="{{ option }}" *ngIf="!isReview">
+        <i *ngIf="!isReview">{{ option }}</i>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.options1 }}</div>
+    </div>
+
+    <div class="user-input-radio">
+      <label class="static"><b>What do you like most in Service 1?</b></label>
+      <div class="input-field col s12" *ngFor="let option of options2">
+        <input formControlName="options2" type="radio" name="options2" value="{{ option }}" *ngIf="!isReview">
+        <i *ngIf="!isReview">{{ option }}</i>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.options2 }}</div>
+    </div>
+
+    <div class="user-input-box">
+      <div>
+        <label class="static"><b>If the service is not in the list, please mention it. (optional)</b></label><br>
+        <textarea formControlName="text1" type="text" name="text1" *ngIf="!isReview" placeholder="type something..."></textarea>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.text1 }}</div>
+    </div>
+
+    <div class="user-input-radio">
+      <label class="static"><b>How well do you like the service?</b></label>
+      <div class="input-field col s12" *ngFor="let option of options3">
+        <input formControlName="options3" type="radio" name="options3" value="{{ option }}" *ngIf="!isReview">
+        <i *ngIf="!isReview">{{ option }}</i>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.options3 }}</div>
+    </div>
+
+    <div class="user-input-radio">
+      <label class="static"><b>How is the overall quality of the service?</b></label>
+      <div class="input-field col s12" *ngFor="let option of options4">
+        <input formControlName="options4" type="radio" name="options4" id="{{ option }}" value="{{ option }}" (change)="seeTextbox($event)" *ngIf="!isReview">
+        <i *ngIf="!isReview">{{ option }}</i>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.options4 }}</div>
+    </div>
+
+    <div class="user-input-box" *ngIf="showMe">
+      <label for="" class="static"><b>Please tell us what you find unsatisfied.</b></label>
+      <div>
+        <textarea id="textbox" formControlName="text0" type="text" name="text0" placeholder="type something..." *ngIf="!isReview"></textarea>
+      </div>
+      <div *ngIf="isReview">{{ formDetails?.text0 }}</div>
+    </div>
+
+    <div class="user-input-box">
+      <label class="static"><b>Leave a comment. (optional) </b></label>
+      <div>
+        <textarea formControlName="text2" type="text" name="text2" placeholder="Leave a comment.." *ngIf="!isReview">
+          </textarea>
+      </div> 
+      <div *ngIf="isReview">{{ formDetails?.text2 }}</div>     
+    </div>  
+  </div>  
+    
+    <div class="row">
+      <button type="submit" *ngIf="isReview"> Submit </button>
+      <button type="reset" *ngIf="!isReview">Reset</button>
+      <button type="button" *ngIf="!isReview" [disabled]="feedbackForm.invalid" (click)="reviewForm()" >Review</button>
+      <button type="button" (click)="editForm()" *ngIf="isReview">Edit</button>
+    </div>
+  
+    </form>
+  </div>
+   -->

@@ -1,0 +1,275 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.feedback-box {
+  margin-top: 75px;
+  height: fit-content;
+  background: whitesmoke;
+  text-align: center;
+  /* box-shadow: 0px 10px 50px rgb(250, 2, 184), 0 3px 6px rgb(255, 255, 255); */
+}
+
+.feedback-title {
+  margin-top: 45px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #9220e4;
+  text-shadow: 2px 2px 2px #9220e4;
+}
+
+.feedback-form {
+  margin-top: 25px;
+  text-align: left;
+}
+
+input[type=text] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d63384;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  color: white;
+}
+
+.form-group-box{
+  display: block;
+  padding-bottom: 15px;
+  margin: 30px;
+  border-bottom: 1px solid #d63384;
+}
+
+.form-group-radio{
+  color: black;
+  border-bottom: 1px solid #d63384;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 15px;
+  margin: 30px;
+}
+
+.form-group-box label{
+  width: 95%;
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0;
+}
+
+label {
+  margin-bottom: 0px;
+  
+}
+
+.form-control-label {
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+textarea{
+  color: black;
+  background-color: #e5e2e2;
+  border-radius: 7px;
+  width: 50%;
+  outline: none;
+  border: 7px solid #e5e2e2;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+
+button{
+  width: 90px;
+  cursor: pointer;
+  background: #ff589e;
+  font-size: 13px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+button:hover{
+  background:#8261ee;
+  color: white;
+  transition: all 0.3s ease 0s;
+} 
+
+@media(max-width: 600px){
+  .container{
+    min-width: 100%;
+  }
+  .form-group-box{
+    margin-bottom: 100%;
+    width: 12px;
+  }
+  .form-group-radio{
+    display: block;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .feedback-form{
+    max-height: 380px;
+    overflow: auto;
+  }
+  .feedback-form::-webkit-scrollbar{
+    width: 0;
+  }
+}
+
+/* 
+::selection {
+  background: #ff589e;
+  color: #fff;
+}
+
+.container{
+  background: rgba(0, 0, 0, 0.5);
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: inset -2px 2px 2px black;
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+form{
+  width: 100%;
+  place-items: center;
+  margin-left: 30%;
+}
+
+.form-title{
+  display: flex;
+  font-size: 40px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 6px;
+  color: white;
+  text-shadow: 2px 2px 2px white;
+  border-bottom: solid 1px white;
+}
+
+.logout{
+  margin-top: 0px;
+  margin-left: 50%;
+}
+
+.main-user-info{
+  display: block;
+  justify-content: space-between;
+}
+  
+.user-input-box:nth-child(2n){
+  justify-content: end;
+}
+
+.user-input-box{
+  display: block;
+  width: 100%;
+  padding-bottom: 15px;
+  margin: 30px;
+  border-bottom: 1px solid white;
+}
+
+.user-input-box label{
+  width: 95%;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.user-input-box input{
+  border-radius: 7px;
+  width: 50%;
+  outline: none;
+  border: 7px solid white;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+.user-input-radio{
+  color: white;
+  border-bottom: 1px solid white;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 30px;
+}
+
+textarea{
+  border-radius: 7px;
+  width: 50%;
+  outline: none;
+  border: 7px solid white;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+.input-field{
+  margin: 7px 0;
+  margin-left: 10px;
+}
+
+button{
+  width: 90px;
+  cursor: pointer;
+  background: #ff589e;
+  font-size: 13px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  letter-spacing: 0.25px;
+  margin-left: 30px;
+  text-transform: uppercase;
+}
+
+button:hover{
+  background:#8261ee;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+
+@media(max-width: 600px){
+  .container{
+    min-width: 100%;
+  }
+  .user-input-box{
+    margin-bottom: 100%;
+    width: 12px;
+  }
+  .user-input-box:nth-child(2n){
+    justify-content: space-between;
+  }
+  .user-input-radio{
+    display: block;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .main-user-info{
+    max-height: 380px;
+    overflow: auto;
+  }
+  .main-user-info::-webkit-scrollbar{
+    width: 0;
+  }
+} */

@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; 
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-size: 16px;    
+    color: white;
+    box-align:center;
+    justify-content: center;
+    align-items: center;
+    /* background: url(assets/img/bg.webp); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: multiply;
+ }
+
+::selection {
+    background: #ff589e;
+    color: black;
+}
+
+.navbar{
+    max-width: 80%;
+    margin-top: 10px;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+    min-height: 80px;
+    background: #fff;
+    box-sizing: border-box;
+    margin-left: 10%;
+}
+
+.navbar-brand{
+    margin-left: 20px;
+}
+
+.company{
+    padding-left: 0.1%;
+    color: #007bff;
+    font-size: 14px;
+}
+
+button{
+    width: 90px;
+    cursor: pointer;
+    background: #ff589e;
+    font-size: 13px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+  }
+
+  button:hover{
+    background:#8261ee;
+    color: white;
+    transition: all 0.3s ease 0s;
+  }
